@@ -4,6 +4,8 @@
 
 This is a plugin for the `@angular/cli` to replace the testing framework with [Jest](https://jestjs.io/).
 
+This library is using [Jest Preset Angular](https://github.com/thymikee/jest-preset-angular) behind the scenes so that Jest is compatible with Angular. If you have an Angular + Jest issue (and not a CLI + Jest issue), please open an issue there :)
+
 ## Features
 
 -   Sets up Jest and removes Karma & Jasmine
@@ -82,6 +84,7 @@ the project gets better and better, this is also known as [The Boy Scout Rule](h
         to improve the security and privacy of this project!
 -   Related projects:
     -   Jest: https://jestjs.io/
+    -   Jest Preset Angular: https://github.com/thymikee/jest-preset-angular
 
 ## Licensing
 
