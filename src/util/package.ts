@@ -1,12 +1,12 @@
-import {SchematicContext, Rule, Tree} from "@angular-devkit/schematics";
-import {NodePackageInstallTask} from "@angular-devkit/schematics/tasks";
-import {getJson, setJson} from "./json";
+import { SchematicContext, Rule, Tree } from "@angular-devkit/schematics";
+import { NodePackageInstallTask } from "@angular-devkit/schematics/tasks";
+import { getJson, setJson } from "./json";
 
 export const addPackage = (packageJson: string) => (type: string, pkg: string, version: string): Rule => {
     const writeJson = setJson(packageJson);
 
     return (host: Tree) => {
-        const json = getJson(packageJson);
+        const json = getJson(packageJson)(host);
 
         if (!json[type]) {
             json[type] = {};
@@ -24,7 +24,7 @@ export const removePackage = (packageJson: string) => (type: string, pkg: string
     const writeJson = setJson(packageJson);
 
     return (host: Tree): Tree => {
-        const json = getJson(packageJson);
+        const json = getJson(packageJson)(host);
 
         if (!json[type]) {
             return host;
@@ -34,13 +34,13 @@ export const removePackage = (packageJson: string) => (type: string, pkg: string
 
         return writeJson(json)(host);
     };
-}
+};
 
 export const addScript = (packageJson: string) => (key: string, command: string): Rule => {
     const writeJson = setJson(packageJson);
 
     return (host: Tree): Tree => {
-        const json = getJson(packageJson);
+        const json = getJson(packageJson)(host);
 
         if (!json["scripts"]) {
             json["scripts"] = {};
@@ -48,14 +48,14 @@ export const addScript = (packageJson: string) => (key: string, command: string)
 
         json["scripts"] = {
             ...json["scripts"],
-            [key]: command
+            [key]: command,
         };
 
         host.overwrite(packageJson, JSON.stringify(json, null, 2));
 
         return writeJson(json)(host);
     };
-}
+};
 
 export function runNpmInstall() {
     return (host: Tree, context: SchematicContext): Tree => {
