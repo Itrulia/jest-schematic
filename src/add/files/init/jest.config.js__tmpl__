@@ -1,0 +1,10 @@
+const {moduleNames, ignoreModules, projects} = require("./jest.mapper.json");
+
+module.exports = {
+  ...require("@itrulia/jest-schematic/jest.config"),
+  projects: projects,
+  coverageDirectory: "<rootDir>/coverage/",
+  moduleNameMapper: moduleNames,
+  modulePathIgnorePatterns: ignoreModules,
+  displayName: "App",
+};

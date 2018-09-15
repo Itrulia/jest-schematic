@@ -1,0 +1,419 @@
+
+{
+    "title": "Jest Target",
+    "description": "Jest target options for Build Facade.",
+    "type": "object",
+    "properties": {
+      // Angular CLI
+      "environment": {
+        "type": "string",
+        "description": "Defines the build environment."
+      },
+      "tsConfig": {
+        "type": "string",
+        "description": ""
+      },
+      // Jest
+      "all": {
+        "type": "boolean",
+        "description": ""
+      },
+      "automock": {
+        "type": "boolean",
+        "description": ""
+      },
+      "bail": {
+        "type": "boolean",
+        "description": ""
+      },
+      "browser": {
+        "type": "boolean",
+        "description": ""
+      },
+      "cache": {
+        "type": "boolean",
+        "description": ""
+      },
+      "cacheDirectory": {
+        "type": "boolean",
+        "description": ""
+      },
+      "changedFilesWithAncestor": {
+        "type": "boolean",
+        "description": ""
+      },
+      "changedSince": {
+        "type": "string",
+        "description": ""
+      },
+      "ci": {
+        "type": "boolean",
+        "description": ""
+      },
+      "clearCache": {
+        "type": "boolean",
+        "description": ""
+      },
+      "clearMocks": {
+        "type": "boolean",
+        "description": ""
+      },
+      "collectCoverage": {
+        "type": "boolean",
+        "description": ""
+      },
+      "collectCoverageFrom": {
+        "type": "array",
+        "description": "",
+        "items": {
+          "type": "string"
+        }
+      },
+      "collectCoverageOnlyFrom": {
+        "type": "array",
+        "description": "",
+        "items": {
+          "type": "string"
+        }
+      },
+      "config": {
+        "type": "string",
+        "description": "The name of the Jest configuration file."
+      },
+      "coverage": {
+        "type": "boolean",
+        "description": "Output a code coverage report."
+      },
+      "coverageDirectory": {
+        "type": "string",
+        "description": "Output path of coverage."
+      },
+      "coveragePathIgnorePatterns": {
+        "type": "array",
+        "description": "Globs to exclude from code coverage.",
+        "items": {
+          "type": "string"
+        },
+        "default": []
+      },
+      "coverageReporters": {
+        "type": "array",
+        "description": "",
+        "items": {
+          "type": "string"
+        },
+        "default": []
+      },
+      "coverageThreshold": {
+        "type": "string",
+        "description": ""
+      },
+      "debug": {
+        "type": "boolean",
+        "description": ""
+      },
+      "env": {
+        "type": "string",
+        "description": ""
+      },
+      "expand": {
+        "type": "boolean",
+        "description": ""
+      },
+      "findRelatedTests": {
+        "type": "boolean",
+        "description": ""
+      },
+      "forceExit": {
+        "type": "boolean",
+        "description": ""
+      },
+      "globals": {
+        "type": "string",
+        "description": ""
+      },
+      "globalSetup": {
+        "type": "string",
+        "description": ""
+      },
+      "globalTeardown": {
+        "type": "string",
+        "description": ""
+      },
+      "h": {
+        "type": "boolean",
+        "description": ""
+      },
+      "help": {
+        "type": "boolean",
+        "description": ""
+      },
+      "init": {
+        "type": "boolean",
+        "description": ""
+      },
+      "json": {
+        "type": "boolean",
+        "description": ""
+      },
+      "lastCommit": {
+        "type": "boolean",
+        "description": ""
+      },
+      "logHeapUsage": {
+        "type": "boolean",
+        "description": ""
+      },
+      "maxWorkers": {
+        "type": "number",
+        "description": "",
+        "default": 5
+      },
+      "modueDirectories": {
+        "type": "array",
+        "description": "",
+        "items": {
+          "type": "string"
+        }
+      },
+      "moduleFileExtensions": {
+        "type": "array",
+        "description": "",
+        "items": {
+          "type": "string"
+        }
+      },
+      "moduleLoader": {
+        "type": "string",
+        "description": ""
+      },
+      "moduleMapper": {
+        "type": "string",
+        "description": ""
+      },
+      "modulePathIgnorePatterns": {
+        "type": "array",
+        "description": "",
+        "items": {
+          "type": "string"
+        }
+      },
+      "modulePaths": {
+        "type": "array",
+        "description": "",
+        "items": {
+          "type": "string"
+        }
+      },
+      "name": {
+        "type": "string",
+        "description": ""
+      },
+      "noSCM": {
+        "type": "boolean",
+        "description": ""
+      },
+      "noStackTrace": {
+        "type": "boolean",
+        "description": ""
+      },
+      "notify": {
+        "type": "boolean",
+        "description": ""
+      },
+      "notifyMode": {
+        "type": "string",
+        "description": ""
+      },
+      "onlyChanged": {
+        "type": "boolean",
+        "description": ""
+      },
+      "outputFile": {
+        "type": "string",
+        "description": ""
+      },
+      "preset": {
+        "type": "string",
+        "description": ""
+      },
+      "projects": {
+        "type": "array",
+        "description": "",
+        "items": {
+          "type": "string"
+        }
+      },
+      "replname": {
+        "type": "string",
+        "description": ""
+      },
+      "resetMocks": {
+        "type": "boolean",
+        "description": ""
+      },
+      "resetModules": {
+        "type": "boolean",
+        "description": ""
+      },
+      "resolver": {
+        "type": "string",
+        "description": ""
+      },
+      "restoreMocks": {
+        "type": "boolean",
+        "description": ""
+      },
+      "rootDir": {
+        "type": "string",
+        "description": ""
+      },
+      "roots": {
+        "type": "array",
+        "description": "",
+        "items": {
+          "type": "string"
+        }
+      },
+      "runInBand": {
+        "type": "boolean",
+        "description": ""
+      },
+      "setupFiles": {
+        "type": "array",
+        "description": "",
+        "items": {
+          "type": "string"
+        }
+      },
+      "setupTestFrameworkScriptFile": {
+        "type": "string",
+        "description": ""
+      },
+      "showConfig": {
+        "type": "boolean",
+        "description": ""
+      },
+      "silent": {
+        "type": "boolean",
+        "description": ""
+      },
+      "snapshotSerializers": {
+        "type": "array",
+        "description": "",
+        "items": {
+          "type": "string"
+        }
+      },
+      "testEnvironment": {
+        "type": "string",
+        "description": ""
+      },
+      "testFailureExitCode": {
+        "type": "string",
+        "description": ""
+      },
+      "testMatch": {
+        "type": "array",
+        "description": "",
+        "items": {
+          "type": "string"
+        }
+      },
+      "testNamePattern": {
+        "type": "string",
+        "description": ""
+      },
+      "testPathIgnorePatterns": {
+        "type": "array",
+        "description": "",
+        "items": {
+          "type": "string"
+        }
+      },
+      "testPathPattern": {
+        "type": "array",
+        "description": "",
+        "items": {
+          "type": "string"
+        }
+      },
+      "testRegex": {
+        "type": "string",
+        "description": ""
+      },
+      "testResultsProcessor": {
+        "type": "string",
+        "description": ""
+      },
+      "testRunner": {
+        "type": "string",
+        "description": ""
+      },
+      "testURL": {
+        "type": "string",
+        "description": ""
+      },
+      "timers": {
+        "type": "string",
+        "description": ""
+      },
+      "transform": {
+        "type": "string",
+        "description": ""
+      },
+      "transformIgnorePatterns": {
+        "type": "array",
+        "description": "",
+        "items": {
+          "type": "string"
+        }
+      },
+      "unmockedModulePathPatterns": {
+        "type": "array",
+        "description": "",
+        "items": {
+          "type": "string"
+        }
+      },
+      "updateSnapshot": {
+        "type": "boolean",
+        "description": ""
+      },
+      "useStderr": {
+        "type": "boolean",
+        "description": ""
+      },
+      "verbose": {
+        "type": "boolean",
+        "description": ""
+      },
+      "version": {
+        "type": "boolean",
+        "description": ""
+      },
+      "watch": {
+        "type": "boolean",
+        "description": "Run build when files change."
+      },
+      "watchAll": {
+        "type": "boolean",
+        "description": ""
+      },
+      "watchman": {
+        "type": "boolean",
+        "description": ""
+      },
+      "watchPathIgnorePatterns": {
+        "type": "array",
+        "description": "",
+        "items": {
+          "type": "string"
+        }
+      }
+    },
+    "required": [
+      "config",
+      "tsConfig"
+    ]
+  }

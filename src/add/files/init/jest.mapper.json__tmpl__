@@ -1,0 +1,9 @@
+{
+    "moduleNames": {},
+    "ignoreModules": [
+        "<rootDir>/dist"
+    ],
+    "projects": [
+        "<rootDir>"
+    ]
+}

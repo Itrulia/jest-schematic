@@ -1,0 +1,10 @@
+{
+    "$schema": "../node_modules/@angular-devkit/architect/src/builders-schema.json",
+    "builders": {
+      "test": {
+        "class": "./run",
+        "schema": "./run/schema.json",
+        "description": "Run Jest unit tests."
+      }
+    }
+  }

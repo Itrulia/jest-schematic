@@ -1,0 +1,10 @@
+const {moduleNames, ignoreModules} = require("<%= relativeRoot %>/jest.mapper.json");
+
+module.exports = {
+  ...require("@itrulia/jest-schematic/jest.config"),
+  moduleNameMapper: moduleNames,
+  modulePathIgnorePatterns: ignoreModules,
+  testMatch: ["<rootDir>/<%= sourceRoot %>/**/*.spec.ts"],
+  name: "<%= name %>",
+  displayName: "<%= name %>"
+};
