@@ -1,6 +1,6 @@
 {
     "name": "@itrulia/jest-schematic",
-    "version": "0.0.8-alpha.1",
+    "version": "0.0.8-alpha.2",
     "description": "Jest schematics for the @angular/cli",
     "scripts": {
         "commit": "git-cz",
