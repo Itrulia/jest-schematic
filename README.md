@@ -26,7 +26,7 @@ If you now execute the command `ng test <project_name>`, `@angular/cli` will exe
 To add it to a generated library, you can use the following command:
 
 ```shell
-ng generate @itrulia/jest-schematic:jest --project=@itrulia/dates
+ng generate @itrulia/jest-schematic:jest --project=<project_name>
 ```
 
 This will setup Jest in that project.
