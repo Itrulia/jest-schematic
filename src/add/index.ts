@@ -1,23 +1,9 @@
-import {
-    apply,
-    chain,
-    MergeStrategy,
-    mergeWith,
-    Rule,
-    SchematicContext,
-    template,
-    Tree,
-    url
-} from "@angular-devkit/schematics";
-import {strings} from "@angular-devkit/core";
-import {getWorkspace, setWorkspace} from "../util/workspace";
-import {SchematicsException} from "@angular-devkit/schematics";
-import {addMapping} from "../util/mapping";
-import {
-    addPackage,
-    removePackage,
-    runNpmInstall
-} from "../util/package";
+import { apply, chain, MergeStrategy, mergeWith, Rule, SchematicContext, template, Tree, url } from "@angular-devkit/schematics";
+import { strings } from "@angular-devkit/core";
+import { getWorkspace, setWorkspace } from "../util/workspace";
+import { SchematicsException } from "@angular-devkit/schematics";
+import { addMapping } from "../util/mapping";
+import { addPackage, removePackage, runNpmInstall } from "../util/package";
 
 const PACKAGE_JSON = "package.json";
 
@@ -33,15 +19,15 @@ export default function(): Rule {
         }
 
         const project = workspace.projects[workspace.defaultProject];
-        const {architect} = project;
+        const { architect } = project;
 
         if (architect) {
             architect.test = {
                 builder: "@itrulia/jest-schematic:test",
                 options: {
-                  config: `jest.config.js`,
-                  tsConfig: `src/tsconfig.spec.json`
-                }
+                    config: `jest.config.js`,
+                    tsConfig: `src/tsconfig.spec.json`,
+                },
             };
         }
 
@@ -50,10 +36,6 @@ export default function(): Rule {
             addToPackage("devDependencies", "jest", "^22.4.2"),
             addToPackage("devDependencies", "jest-preset-angular", "^5.2.1"),
 
-            removeFromPackage("devDependencies", "jasmine-core"),
-            removeFromPackage("devDependencies", "jasmine-spec-reporter"),
-            removeFromPackage("devDependencies", "@types/jasmine"),
-            removeFromPackage("devDependencies", "@types/jasminewd2"),
             removeFromPackage("devDependencies", "karma"),
             removeFromPackage("devDependencies", "karma-chrome-launcher"),
             removeFromPackage("devDependencies", "karma-coverage-istanbul-reporter"),
@@ -61,7 +43,7 @@ export default function(): Rule {
             runNpmInstall(),
             deleteFiles(),
             copyRootConfigFiles(),
-            setWorkspace(workspace)
+            setWorkspace(workspace),
         ])(host, context) as Tree;
     };
 }
@@ -77,19 +59,22 @@ export function addToLib(options: any): Rule {
         }
 
         const project = workspace.projects[options.project];
-        const {root, sourceRoot, architect} = project;
+        const { root, sourceRoot, architect } = project;
 
         const [, scope, pkg] = root.split("/");
-        const name = pkg ? `@${scope}/${pkg}` : scope ;
-        const relativeRoot = root.split("/").map(() => "..").join("/");
+        const name = pkg ? `@${scope}/${pkg}` : scope;
+        const relativeRoot = root
+            .split("/")
+            .map(() => "..")
+            .join("/");
 
         if (architect) {
             architect.test = {
                 builder: "@itrulia/jest-schematic:test",
                 options: {
-                  config: `${root}/jest.config.js`,
-                  tsConfig: `${root}/tsconfig.spec.json`
-                }
+                    config: `${root}/jest.config.js`,
+                    tsConfig: `${root}/tsconfig.spec.json`,
+                },
             };
         }
 
@@ -99,9 +84,16 @@ export function addToLib(options: any): Rule {
                 relativeRoot,
                 name,
                 pkg,
-                sourceRoot
+                root,
+                sourceRoot,
             }),
-            setWorkspace(workspace)
+            (host: Tree) => {
+                host.delete(`${sourceRoot}/test.ts`);
+                host.delete(`${root}/karma.conf.js`);
+
+                return host;
+            },
+            setWorkspace(workspace),
         ])(host, context) as Tree;
     };
 }
@@ -116,19 +108,29 @@ function deleteFiles() {
 }
 
 function copyProjectConfigFiles(projectRoot: string, options: any = {}): Rule {
-    return mergeWith(apply(url("./files/add"), [template({
-        utils: strings,
-        dot: ".",
-        tmpl: "",
-        projectRoot: projectRoot,
-        ...options
-    })]), MergeStrategy.AllowOverwriteConflict);
+    return mergeWith(
+        apply(url("./files/add"), [
+            template({
+                utils: strings,
+                dot: ".",
+                tmpl: "",
+                projectRoot: projectRoot,
+                ...options,
+            }),
+        ]),
+        MergeStrategy.AllowOverwriteConflict
+    );
 }
 
 function copyRootConfigFiles(): Rule {
-    return mergeWith(apply(url("./files/init"), [template({
-        utils: strings,
-        dot: ".",
-        tmpl: ""
-    })]), MergeStrategy.AllowOverwriteConflict);
+    return mergeWith(
+        apply(url("./files/init"), [
+            template({
+                utils: strings,
+                dot: ".",
+                tmpl: "",
+            }),
+        ]),
+        MergeStrategy.AllowOverwriteConflict
+    );
 }

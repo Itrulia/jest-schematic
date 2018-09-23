@@ -4,7 +4,7 @@ module.exports = {
   ...require("@itrulia/jest-schematic/jest.config"),
   moduleNameMapper: moduleNames,
   modulePathIgnorePatterns: ignoreModules,
-  testMatch: ["<rootDir>/<%= sourceRoot %>/**/*.spec.ts"],
+  testMatch: ["<rootDir>/<%= root %>/**/*.spec.ts"],
   name: "<%= name %>",
   displayName: "<%= name %>"
 };
