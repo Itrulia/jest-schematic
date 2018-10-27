@@ -32,9 +32,9 @@ export default function(): Rule {
         }
 
         return chain([
-            addToPackage("devDependencies", "@types/jest", "^22.2.0"),
-            addToPackage("devDependencies", "jest", "^22.4.2"),
-            addToPackage("devDependencies", "jest-preset-angular", "^5.2.1"),
+            addToPackage("devDependencies", "@types/jest", "^23.0.0"),
+            addToPackage("devDependencies", "jest", "^23.0.0"),
+            addToPackage("devDependencies", "jest-preset-angular", "^6.0.0"),
 
             removeFromPackage("devDependencies", "karma"),
             removeFromPackage("devDependencies", "karma-chrome-launcher"),
