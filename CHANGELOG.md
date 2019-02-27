@@ -1,14 +1,11 @@
-<a name="1.2.1"></a>
+<a name="1.2.2"></a>
 
-## [1.2.1](https://github.com/Itrulia/jest-schematic/compare/v1.2.0...v1.2.1) (2018-10-27)
-
-<a name="1.2.0"></a>
-
-# [1.2.0](https://github.com/Itrulia/jest-schematic/compare/dbcd86c...v1.2.0) (2018-10-27)
+## 1.2.2 (2019-02-27)
 
 ### Bug Fixes
 
 -   **get-json:** fixed issue where host was not passed as param ([dbcd86c](https://github.com/Itrulia/jest-schematic/commit/dbcd86c))
+-   not throwing error on tests failing ([03b8322](https://github.com/Itrulia/jest-schematic/commit/03b8322))
 
 ### Features
 
